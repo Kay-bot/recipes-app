@@ -1,21 +1,23 @@
-const list = document.querySelector("ul");
-const form = document.querySelector("form");
+const list = document.querySelector(".list");
+const form = document.querySelector("#myForm");
 
 const addRecipe = (recipe, id) => {
   let time = recipe.created_at.toDate();
   let html = `
-    <li data-id="${id}">
+  <div class="col-12 col-lg-4 px-2">
+    <div class="li my-2 px-2 py-2 border bg-light" data-id="${id}">
         <div>Recipe name:${recipe.title}</div>
         <div>Created at:${time}</div>
         <div>Author: ${recipe.author}</div>
         <button class="btn btn-danger btn-sm my-2">delete</button>
-    </li>`;
+    </div>
+</div>`;
 
   list.innerHTML += html;
 };
 
 const deleteRecipe = (id) => {
-  const recipes = document.querySelectorAll("li");
+  const recipes = document.querySelectorAll(".li");
   recipes.forEach((recipe) => {
     if (recipe.getAttribute("data-id") === id) {
       recipe.remove();
