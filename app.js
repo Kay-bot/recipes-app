@@ -53,6 +53,7 @@ form.addEventListener("submit", (e) => {
     .catch((err) => {
       console.log(err);
     });
+  form.reset();
 });
 
 // deleting data
