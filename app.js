@@ -3,11 +3,13 @@ const form = document.querySelector("#myForm");
 
 const addRecipe = (recipe, id) => {
   let time = recipe.created_at.toDate();
+  let now = new Date();
+  const timeCreated = dateFns.distanceInWords(now, time, { addSuffix: true });
   let html = `
   <div class="col-12 col-lg-4 px-2">
     <div class="li my-2 px-2 py-2 border bg-light" data-id="${id}">
         <div>Recipe name:${recipe.title}</div>
-        <div>Created at:${time}</div>
+        <div>Created at:${timeCreated}</div>
         <div>Author: ${recipe.author}</div>
         <button class="btn btn-danger btn-sm my-2">delete</button>
     </div>
